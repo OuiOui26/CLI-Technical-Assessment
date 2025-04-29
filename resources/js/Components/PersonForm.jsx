@@ -22,31 +22,42 @@ export default function PersonForm(){
     };
 
     return (
-        <>
-        <h1 className="text-xl font-bold mb-4">Add Person</h1>
-            <form onSubmit={submit} className="space-y-2">
-                <input
-                    type="text"
-                    placeholder="First Name"
-                    value={data.first_name}
-                    onChange={(e) => setData('first_name', e.target.value)}
-                    className="border p-2 block w-full"
-                />
-                <input
-                    type="text"
-                    placeholder="Last Name"
-                    value={data.last_name}
-                    onChange={(e) => setData('last_name', e.target.value)}
-                    className="border p-2 block w-full"
-                />
-                <button
-                    type="submit"
-                    className="bg-blue-500 text-white px-4 py-2 rounded"
-                    disabled={processing}
-                >
-                    Add
-                </button>
+        <div className="flex justify-center mt-10">
+            <form onSubmit={submit} className="w-full max-w-md space-y-4">
+                
+                {/* First Name */}
+                <div className="flex items-center">
+                    <label className="w-32">First Name:</label>
+                    <input
+                        type="text"
+                        value={data.first_name}
+                        onChange={(e) => setData('first_name', e.target.value)}
+                        className="flex-1 border p-2 rounded"
+                    />
+                </div>
+
+
+                <div className="flex items-center">
+                    <label className="w-32">Last Name:</label>
+                    <input
+                        type="text"
+                        value={data.last_name}
+                        onChange={(e) => setData('last_name', e.target.value)}
+                        className="flex-1 border p-2 rounded"
+                    />
+                </div>
+
+
+                <div className="flex justify-end">
+                    <button
+                        type="submit"
+                        className="bg-blue-500 text-white px-4 py-2 rounded"
+                        disabled={processing}
+                    >
+                        Add
+                    </button>
+                </div>
             </form>
-        </>
+        </div>
     );
 }
